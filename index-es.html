@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Belén Vinsennau — Desarrolladora de videojuegos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Belén Vinsennau, desarrolladora de videojuegos especializada en sistemas de gameplay, multijugador y UI en Unity y Unreal Engine.">
+  <style>
+    :root {
+      --bg: #fafaf9;
+      --text: #1c1c1a;
+      --muted: #6b6b66;
+      --line: #e4e4df;
+      --max: 680px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #161615;
+        --text: #ecebe6;
+        --muted: #9b9a94;
+        --line: #2c2c29;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #161615;
+      --text: #ecebe6;
+      --muted: #9b9a94;
+      --line: #2c2c29;
+    }
+
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Geist", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 64px 16px 96px;
+    }
+    a { color: inherit; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line); }
+    a:hover { text-decoration-color: var(--text); }
+
+    header { margin-bottom: 56px; }
+    h1 {
+      font-size: clamp(2rem, 6vw, 2.6rem);
+      line-height: 1.15;
+      margin: 0 0 8px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .role { color: var(--muted); margin: 0 0 16px; }
+    .links { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 0.95rem; }
+
+    section { margin-bottom: 56px; }
+    h2 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
+      margin: 0 0 24px;
+    }
+    p { margin: 0 0 12px; }
+
+    .entry {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 4px 24px;
+      margin-bottom: 28px;
+    }
+    .date { color: var(--muted); font-size: 0.9rem; padding-top: 2px; }
+    .entry h3 { font-size: 1rem; margin: 0 0 2px; font-weight: 600; }
+    .entry .org { color: var(--muted); margin: 0 0 8px; font-size: 0.95rem; }
+
+    .list { list-style: none; padding: 0; margin: 0; }
+    .list li { padding: 14px 0; border-bottom: 1px solid var(--line); }
+    .list li:first-child { padding-top: 0; }
+    .list li:last-child { border-bottom: 0; }
+    .list .name { font-weight: 600; }
+    .list .tech { color: var(--muted); font-size: 0.85rem; margin: 2px 0 4px; }
+    .list p { margin: 0; }
+
+    details.job { margin-bottom: 20px; }
+    details.job > summary {
+      list-style: none;
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 4px 24px;
+    }
+    details.job > summary::-webkit-details-marker { display: none; }
+    details.job > summary .title { font-weight: 600; }
+    details.job > summary .title::after { content: " +"; color: var(--muted); }
+    details.job[open] > summary .title::after { content: " −"; }
+    details.job > summary .org { display: block; color: var(--muted); font-size: 0.95rem; }
+    details.job > summary:hover .title { text-decoration: underline; text-underline-offset: 3px; }
+    .job-body { padding: 12px 0 0 144px; overflow: hidden; }
+    .job-body ul { list-style: square; padding-left: 18px; margin: 0; }
+    .job-body li { margin-bottom: 4px; }
+    .job-body .desc { margin: 0 0 8px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .tags span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 1px 9px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .theme {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 10;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 12px;
+      width: 9rem;
+      text-align: center;
+      color: var(--muted);
+      font: inherit;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .theme:hover { color: var(--text); }
+    .lang {
+      position: fixed;
+      top: 56px;
+      right: 16px;
+      z-index: 10;
+      display: block;
+      width: 9rem;
+      text-align: center;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .lang:hover { color: var(--text); }
+
+    @media (max-width: 600px) {
+      .wrap { padding-top: 40px; }
+      .entry, details.job > summary { grid-template-columns: 1fr; }
+      .job-body { padding-left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+
+    <header>
+      <h1>Belén Vinsennau</h1>
+      <p class="role">Desarrolladora de videojuegos de Buenos Aires, Argentina, enfocada en programación de gameplay, creación de experiencias interactivas y resolución creativa de problemas.</p>
+      <nav class="links">
+        <a href="mailto:belu.vinsennau@gmail.com">belu.vinsennau@gmail.com</a>
+        <a href="https://linkedin.com/in/belen-vinsennau">LinkedIn</a>
+        <a href="https://github.com/beluvinse">GitHub</a>
+        <a href="Belen_Vinsennau_CV_Game_Developer_ES.pdf">CV</a>
+      </nav>
+    </header>
+
+    <section>
+      <h2>Experiencia</h2>
+
+      <details class="job">
+        <summary>
+          <span class="date">2023 — 2026</span>
+          <span>
+            <span class="title">Game Developer (Unity y Unreal)</span>
+            <span class="org">Trick Studios</span>
+            <span class="tags">
+              <span>Unity</span><span>Unreal Engine</span><span>UEFN</span><span>C#</span><span>Verse</span><span>Multijugador</span><span>Servicio en vivo</span><span>Gameplay</span><span>UI</span><span>Naninovel</span><span>Spine</span>
+            </span>
+          </span>
+        </summary>
+        <div class="job-body">
+          <p class="desc">Trabajé en cuatro juegos con Unity y Unreal Engine, aportando en mecánicas de gameplay, sistemas multijugador, UI y desarrollo de features.</p>
+          <p class="desc"><strong>Proyectos:</strong></p>
+          <ul>
+            <li><a href="https://www.fortnite.com/@engagedgames/3514-5555-1360">Super Jump</a> - Experiencia multijugador de Fortnite desarrollada en UEFN.</li>
+            <li>SugarTown - Juego Web3 desarrollado en Unity.</li>
+            <li><a href="https://godlessrealms.com/">Godless Realms</a> - JRPG de fantasía con elementos de novela visual. Desarrollado en Unity.</li>
+            <li><a href="https://play.cribbage.com">Cribbage Online</a> - Juego de cartas multijugador desarrollado en Unity.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="job">
+        <summary>
+          <span class="date">Ago 2026</span>
+          <span>
+            <span class="title">QA Tester</span>
+            <span class="org">Absolutely Not Games · Contrato temporal · Remoto</span>
+            <span class="tags">
+              <span>QA</span><span>Testing funcional</span><span>Testing exploratorio</span><span>Multijugador</span><span>Input de control</span><span>Bugzilla</span>
+            </span>
+          </span>
+        </summary>
+        <div class="job-body">
+          <p class="desc">Ayudé a testear <a href="https://store.steampowered.com/app/3613070/DinoMight/">Dino-Might</a>, un juego multijugador, explorando distintos escenarios de gameplay, identificando problemas y compartiendo feedback para mejorar la experiencia del jugador.</p>
+        </div>
+      </details>
+    </section>
+
+    <section>
+      <h2>Proyectos personales</h2>
+      <ul class="list">
+        <li>
+          <a class="name" href="https://beluuuula.itch.io/ping-pong">Ping Pong</a>
+          <p class="tech">Unity · C# · DOTween</p>
+          <p>Juego de ping pong arcade con una estética colorida, un oponente controlado por IA y físicas de pelota personalizadas. Empezó como un desafío técnico y evolucionó hacia un proyecto enfocado en el diseño de interfaces, animaciones y efectos visuales.</p>
+        </li>
+        <li>
+          <a class="name" href="https://github.com/beluvinse/playtest-tracker-web">Playtest Tracker</a>
+          <p class="tech">C# · .NET 8 · ASP.NET Core · EF Core · PostgreSQL · React · TypeScript · Docker · GitHub Actions · xUnit</p>
+          <p>Plataforma full-stack para seguimiento de bugs en playtests de juegos, creada como proyecto personal para explorar el desarrollo backend. Incluye autenticación de usuarios, gestión de proyectos por organización y testing automatizado.</p>
+          <p><a href="https://beluvinse.github.io/playtest-tracker-web/login">Demo en vivo</a> (cuentas públicas; la primera carga puede tardar alrededor de un minuto).</p>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Educación</h2>
+      <div class="entry">
+        <div class="date">2021 — 2025</div>
+        <div>
+          <h3>Tecnicatura: Diseño y Programación de Simuladores Virtuales</h3>
+          <p class="org">Escuela Da Vinci</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <button class="theme" id="theme-toggle" type="button">Cambiar tema</button>
+  <a class="lang" href="index.html">English</a>
+
+  <script>
+    (function () {
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+      var DURATION = 320;
+      var EASING = "cubic-bezier(0.2, 0.7, 0.2, 1)";
+
+      document.querySelectorAll("details.job").forEach(function (d) {
+        var summary = d.querySelector("summary");
+        var body = d.querySelector(".job-body");
+        var busy = false;
+
+        summary.addEventListener("click", function (e) {
+          e.preventDefault();
+          if (busy) return;
+
+          if (reduce.matches) {
+            d.open = !d.open;
+            return;
+          }
+
+          busy = true;
+          var height = body.offsetHeight;
+
+          if (d.open) {
+            var closing = body.animate(
+              [
+                { height: height + "px", opacity: 1 },
+                { height: "0px", opacity: 0 }
+              ],
+              { duration: DURATION, easing: EASING }
+            );
+            closing.onfinish = function () {
+              d.open = false;
+              busy = false;
+            };
+          } else {
+            d.open = true;
+            var opening = body.animate(
+              [
+                { height: "0px", opacity: 0 },
+                { height: height + "px", opacity: 1 }
+              ],
+              { duration: DURATION, easing: EASING }
+            );
+            opening.onfinish = function () {
+              busy = false;
+            };
+          }
+        });
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById("theme-toggle");
+      var key = "theme";
+      try {
+        var saved = localStorage.getItem(key);
+        if (saved) root.setAttribute("data-theme", saved);
+      } catch (e) {}
+      btn.addEventListener("click", function () {
+        var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var current = root.getAttribute("data-theme") || (dark ? "dark" : "light");
+        var next = current === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        try { localStorage.setItem(key, next); } catch (e) {}
+      });
+    })();
+  </script>
+</body>
+</html>

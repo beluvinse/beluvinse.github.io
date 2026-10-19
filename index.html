@@ -1,32 +1,334 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KF35PBVQ26"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Belén Vinsennau — Game Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Belén Vinsennau, game developer specialized in gameplay systems, multiplayer and UI in Unity and Unreal Engine.">
+  <style>
+    :root {
+      --bg: #fafaf9;
+      --text: #1c1c1a;
+      --muted: #6b6b66;
+      --line: #e4e4df;
+      --max: 680px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #161615;
+        --text: #ecebe6;
+        --muted: #9b9a94;
+        --line: #2c2c29;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #161615;
+      --text: #ecebe6;
+      --muted: #9b9a94;
+      --line: #2c2c29;
+    }
 
-  gtag('config', 'G-KF35PBVQ26');
-</script>
-    <title>Belen Vinsennau</title>
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Geist", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 64px 16px 96px;
+    }
+    a { color: inherit; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line); }
+    a:hover { text-decoration-color: var(--text); }
+
+    header { margin-bottom: 56px; }
+    h1 {
+      font-size: clamp(2rem, 6vw, 2.6rem);
+      line-height: 1.15;
+      margin: 0 0 8px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .role { color: var(--muted); margin: 0 0 16px; }
+    .links { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 0.95rem; }
+
+    section { margin-bottom: 56px; }
+    h2 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
+      margin: 0 0 24px;
+    }
+    p { margin: 0 0 12px; }
+
+    .entry {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 4px 24px;
+      margin-bottom: 28px;
+    }
+    .date { color: var(--muted); font-size: 0.9rem; padding-top: 2px; }
+    .entry h3 { font-size: 1rem; margin: 0 0 2px; font-weight: 600; }
+    .entry .org { color: var(--muted); margin: 0 0 8px; font-size: 0.95rem; }
+    .entry .desc { margin: 0 0 8px; }
+    .entry ul { margin: 0; padding-left: 18px; }
+    .entry li { margin-bottom: 4px; }
+    .sub { margin-top: 14px; }
+    .sub h4 { font-size: 0.95rem; margin: 0 0 4px; font-weight: 600; }
+    .sub .tech { color: var(--muted); font-size: 0.85rem; margin: 0 0 6px; }
+
+    details.job { margin-bottom: 20px; }
+    details.job > summary {
+      list-style: none;
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 4px 24px;
+    }
+    details.job > summary::-webkit-details-marker { display: none; }
+    details.job > summary .title { font-weight: 600; }
+    details.job > summary .title::after { content: " +"; color: var(--muted); }
+    details.job[open] > summary .title::after { content: " −"; }
+    details.job > summary .org { display: block; color: var(--muted); font-size: 0.95rem; }
+    details.job > summary:hover .title { text-decoration: underline; text-underline-offset: 3px; }
+    .job-body { padding: 12px 0 0 144px; overflow: hidden; }
+    .job-body ul { list-style: square; padding-left: 18px; margin: 0; }
+    .job-body li { margin-bottom: 4px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .tags span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 1px 9px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .skills { display: grid; grid-template-columns: 140px 1fr; gap: 10px 24px; margin: 0; }
+    .skills dt { color: var(--muted); font-size: 0.9rem; }
+    .skills dd { margin: 0; }
+
+    .list { list-style: none; padding: 0; margin: 0; }
+    .list li { padding: 14px 0; border-bottom: 1px solid var(--line); }
+    .list li:first-child { padding-top: 0; }
+    .list li:last-child { border-bottom: 0; }
+    .list .name { font-weight: 600; }
+    .list .tech { color: var(--muted); font-size: 0.85rem; margin: 2px 0 4px; }
+    .list p { margin: 0; }
+
+    footer { color: var(--muted); font-size: 0.85rem; margin-top: 72px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+    .theme {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 10;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 12px;
+      width: 9rem;
+      text-align: center;
+      color: var(--muted);
+      font: inherit;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .theme:hover { color: var(--text); }
+    .lang {
+      position: fixed;
+      top: 56px;
+      right: 16px;
+      z-index: 10;
+      display: block;
+      width: 9rem;
+      text-align: center;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .lang:hover { color: var(--text); }
+
+    @media (max-width: 600px) {
+      .wrap { padding-top: 40px; }
+      .entry, .skills, details.job > summary { grid-template-columns: 1fr; }
+      .job-body { padding-left: 0; }
+    }
+  </style>
 </head>
 <body>
-    <h1>Belen Vinsennau</h1>
+  <main class="wrap">
 
-    <p>Game Developer</p>
+    <header>
+      <h1>Belén Vinsennau</h1>
+      <p class="role">Game developer based in Buenos Aires, Argentina. Focused on gameplay programming, interactive experiences and creative problem-solving</p>
+      <nav class="links">
+        <a href="mailto:belu.vinsennau@gmail.com">belu.vinsennau@gmail.com</a>
+        <a href="https://linkedin.com/in/belen-vinsennau">LinkedIn</a>
+        <a href="https://github.com/beluvinse">GitHub</a>
+        <a href="Belen_Vinsennau_CV_Game_Developer.pdf">CV</a>
+      </nav>
+    </header>
 
-    <h2>Experience</h2>
+    <section>
+      <h2>Experience</h2>
 
-    <ul>
-        <li>Trick Studios</li>
-        <li>SugarTown</li>
-        <li>Super Jump</li>
-    </ul>
+      <details class="job">
+        <summary>
+          <span class="date">2023 — 2026</span>
+          <span>
+            <span class="title">Game Developer (Unity & Unreal)</span>
+            <span class="org">Trick Studios</span>
+            <span class="tags">
+              <span>Unity</span><span>Unreal Engine</span><span>UEFN</span><span>C#</span><span>Verse</span><span>Multiplayer</span><span>Live-service</span><span>Gameplay</span><span>UI</span><span>Naninovel</span><span>Spine</span>
+            </span>
+          </span>
+        </summary>
+        <div class="job-body">
+          <p class="desc">Worked on four games across Unity and Unreal Engine, contributing to gameplay mechanics, multiplayer systems, UI and feature development.</p>
+          <p class="desc"><strong>Projects:</strong></p>
+          <ul>
+            <li><a href="https://www.fortnite.com/@engagedgames/3514-5555-1360">Super Jump</a> - Multiplayer Fortnite experience built in UEFN.</li>
+            <li>SugarTown - Web3 game developed in Unity.</li>
+            <li><a href="https://godlessrealms.com/">Godless Realms</a> - Fantasy JRPG with visual novel elements. Developed in Unity.</li>
+            <li><a href="https://play.cribbage.com">Cribbage Online</a> - Multiplayer card game built in Unity.</li>
+          </ul>
+        </div>
+      </details>
 
-    <a href="CV.pdf">
-        Download CV
-    </a>
+      <details class="job">
+        <summary>
+          <span class="date">Aug 2026</span>
+          <span>
+            <span class="title">QA Tester</span>
+            <span class="org">Absolutely Not Games · Temporary contract · Remote</span>
+            <span class="tags">
+              <span>QA</span><span>Functional testing</span><span>Exploratory testing</span><span>Multiplayer</span><span>Controller input</span><span>Bugzilla</span>
+            </span>
+          </span>
+        </summary>
+        <div class="job-body">
+          <p class="desc">Helped test <a href="https://store.steampowered.com/app/3613070/DinoMight/">Dino-Might</a>, a multiplayer game, by exploring different gameplay scenarios, identifying issues and sharing feedback to improve the player experience.</p>
+        </div>
+      </details>
+    </section>
+
+    <section>
+      <h2>Personal Projects</h2>
+      <ul class="list">
+        <li>
+          <a class="name" href="https://beluuuula.itch.io/ping-pong">Ping Pong</a>
+          <p class="tech">Unity · C# · DOTween</p>
+          <p>A colorful arcade table tennis game featuring mouse-controlled gameplay, an AI opponent and custom ball physics. Built as a technical challenge and later expanded with a focus on UI, animations and visual effects.</p>
+        </li>
+        <li>
+          <a class="name" href="https://github.com/beluvinse/playtest-tracker-web">Playtest Tracker</a>
+          <p class="tech">C# · .NET 8 · ASP.NET Core · EF Core · PostgreSQL · React · TypeScript · Docker · GitHub Actions · xUnit</p>
+          <p>A full-stack bug tracking platform for game playtests, built as a personal project to explore backend development. Features user authentication, organization-based project management and automated testing.</p>
+          <p><a href="https://beluvinse.github.io/playtest-tracker-web/login">Live demo</a> (public accounts; the first load can take about a minute).</p>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="date">2021 — 2025</div>
+        <div>
+          <h3>Tertiary Degree: Design & Programming of Virtual Simulators</h3>
+          <p class="org">Escuela Da Vinci</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <button class="theme" id="theme-toggle" type="button">Toggle theme</button>
+  <a class="lang" href="index-es.html">Español</a>
+
+  <script>
+    (function () {
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+      var DURATION = 320;
+      var EASING = "cubic-bezier(0.2, 0.7, 0.2, 1)";
+
+      document.querySelectorAll("details.job").forEach(function (d) {
+        var summary = d.querySelector("summary");
+        var body = d.querySelector(".job-body");
+        var busy = false;
+
+        summary.addEventListener("click", function (e) {
+          e.preventDefault();
+          if (busy) return;
+
+          if (reduce.matches) {
+            d.open = !d.open;
+            return;
+          }
+
+          busy = true;
+          var height = body.offsetHeight;
+
+          if (d.open) {
+            var closing = body.animate(
+              [
+                { height: height + "px", opacity: 1 },
+                { height: "0px", opacity: 0 }
+              ],
+              { duration: DURATION, easing: EASING }
+            );
+            closing.onfinish = function () {
+              d.open = false;
+              busy = false;
+            };
+          } else {
+            d.open = true;
+            var opening = body.animate(
+              [
+                { height: "0px", opacity: 0 },
+                { height: height + "px", opacity: 1 }
+              ],
+              { duration: DURATION, easing: EASING }
+            );
+            opening.onfinish = function () {
+              busy = false;
+            };
+          }
+        });
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById("theme-toggle");
+      var key = "theme";
+      try {
+        var saved = localStorage.getItem(key);
+        if (saved) root.setAttribute("data-theme", saved);
+      } catch (e) {}
+      btn.addEventListener("click", function () {
+        var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var current = root.getAttribute("data-theme") || (dark ? "dark" : "light");
+        var next = current === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        try { localStorage.setItem(key, next); } catch (e) {}
+      });
+    })();
+  </script>
 </body>
 </html>
