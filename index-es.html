@@ -60,6 +60,8 @@
     }
     .role { color: var(--muted); margin: 0 0 16px; }
     .links { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 0.95rem; }
+    .links .btn { display: inline-block; padding: 6px 14px; border: 1px solid var(--text); border-radius: 999px; text-decoration: none; font-weight: 500; }
+    .links .btn:hover { background: var(--text); color: var(--bg); }
 
     section { margin-bottom: 56px; }
     h2 {
@@ -155,7 +157,10 @@
     .lang:hover { color: var(--text); }
 
     @media (max-width: 600px) {
-      .wrap { padding-top: 40px; }
+      .wrap { padding-top: 72px; }
+      .theme, .lang { top: 12px; width: 7.5rem; padding: 3px 10px; font-size: 0.8rem; }
+      .theme { right: 16px; }
+      .lang { right: calc(16px + 7.5rem + 8px); }
       .entry, details.job > summary { grid-template-columns: 1fr; }
       .job-body { padding-left: 0; }
     }
@@ -169,9 +174,9 @@
       <p class="role">Desarrolladora de videojuegos de Buenos Aires, Argentina, enfocada en programación de gameplay, creación de experiencias interactivas y resolución creativa de problemas.</p>
       <nav class="links">
         <a href="mailto:belu.vinsennau@gmail.com">belu.vinsennau@gmail.com</a>
-        <a href="https://linkedin.com/in/belen-vinsennau" data-umami-event="external-link" data-umami-event-name="LinkedIn">LinkedIn</a>
-        <a href="https://github.com/beluvinse" data-umami-event="external-link" data-umami-event-name="GitHub">GitHub</a>
-        <a href="Belen_Vinsennau_CV_Game_Developer_ES.pdf" data-umami-event="cv-download" data-umami-event-name="CV">CV</a>
+        <a class="btn" href="https://linkedin.com/in/belen-vinsennau" data-umami-event="external-link" data-umami-event-name="LinkedIn">LinkedIn</a>
+        <a class="btn" href="https://github.com/beluvinse" data-umami-event="external-link" data-umami-event-name="GitHub">GitHub</a>
+        <a class="btn" href="Belen_Vinsennau_CV_Game_Developer_ES.pdf" data-umami-event="cv-download" data-umami-event-name="CV">CV</a>
       </nav>
     </header>
 
